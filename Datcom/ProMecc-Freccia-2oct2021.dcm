@@ -1,0 +1,201 @@
+*
+*  ProMecc-Freccia
+*
+*  Values added by Salvatore De Astis, September 2021
+*  
+
+DIM FT
+DERIV DEG
+TRIM
+DAMP
+PART
+
+
+**********************  
+*  Flight Conditions *
+**********************
+
+ $FLTCON
+    WT=1041.684, 
+    LOOP=2.0, TR=1.0,
+    NMACH=1.0,MACH(1)=0.158,
+	NALT=1.0, ALT(1)=0.0,
+	NALPHA=20.0, 
+    ALSCHD(1)= -16.0, -8.0, -6.0, -4.0, -2.0, 0.0, 2.0, 4.0, 6.0, 8.0,
+          9.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0, 30.0, 40.0, 50.0,
+*    ALSCHD(1)= -5.0, -2.5, -1.0, 0.0, 1.0, 2.5, 5.0, 6.0, 8.0, 10.0,
+*         12.0, 15.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0,
+	RNNUB(1)=1.07E6,
+*    PINF(1)=1967.62,
+*    VINF=176.0,TINF(1)=511.57,
+    GAMMA=0.0$
+
+*************************  
+*  Reference Parameters *   pg 29
+*************************
+ $OPTINS SREF=109.038,CBARR=3.937,BLREF=28.796, ROUGFC=0.23E-3$
+
+******************************************
+* Group II     Synthesis Parameters
+******************************************
+ $SYNTHS 
+    XCG=6.90,ZCG=-0.8335,
+	XW=5.699,ZW=-1.145,ALIW=0.0,
+	XH=18.868,ZH=-0.225,ALIH=1.2,
+    XV=16.043,ZV=0.139,
+*	XVF=13.304,ZVF=1.061,          
+    VERTUP=.TRUE.$
+
+**********************************  
+*  Body Configuration Parameters *
+**********************************
+ $BODY NX=19.0,
+       X(1)=-0.974,0.0000,0.5519,0.9066,1.8247,2.7349,
+	        3.7023,5.0482,5.7449,6.4525,7.1835,
+			8.0649,8.9839,10.0905,11.548,13.1568,
+			15.8459,18.152,20.1107,
+       R(1)=0.0,0.4630,1.0671,1.1600,1.3353,1.4903,
+	        1.6313,1.7881,1.8408,1.8807,1.8950,
+			1.8828,1.8302,1.7255,1.5104,1.2161,
+			0.7393,0.4738,0.336,
+       ZU(1)=0.0,0.4820,0.5754,0.6260,0.7231,0.7970,
+	         0.8624,0.9118,1.3377,1.7095,1.9686,
+			 2.1438,2.1846,2.0488,1.6016,1.0874,
+			 0.5936,0.3482,0.157,
+       ZL(1)=0.0,-0.4370,-0.8095,-1.0109,-1.3585,-1.5630,
+	         -1.6700,-1.7232,-1.7329,-1.7211,-1.6985,
+			 -1.6545,-1.5859,-1.4802,-1.3058,-1.0824,
+			 -0.7123,-0.4776,-0.2157,
+       ITYPE=1.0, METHOD=1.0$
+
+
+
+**********************************
+*         Wing planform variables   pg 37-38
+**********************************
+ $WGPLNF CHRDR=4.854,CHRDTP=2.953,
+         SSPNE=11.440,SSPN=14.398,
+		 SAVSI=1.0,
+         CHSTAT=0.25,TWISTA=0.0,DHDADI=5.0,DHDADO=0.0,TYPE=1.0$
+
+NACA-W-6-632-412
+
+SAVE
+
+*******************************************
+*    Symmetrical Flap Deflection parameters
+*******************************************
+ $SYMFLP FTYPE=2.0,
+         NDELTA=8.0,
+         DELTA(1)=0.0,5.0,10.0,15.0,20.0,25.0,30.0,35.0,
+         PHETE=0.00290, PHETEP=0.002246,
+         CHRDFI=0.950,  CHRDFO=0.780,
+         SPANFI=1.945,  SPANFO=7.649,
+         CPRMEI(1)=4.580,4.586,4.592,4.598,4.605,4.611,4.617,4.623,
+         CPRMEO(1)=3.761,3.766,3.771,3.776,3.781,3.786,3.791,3.796,
+         NTYPE=1.0$
+
+*************************************************************
+* TEST:  Model Frise Aileron as Symmetrical Flap 
+*************************************************************
+
+* $SYMFLP FTYPE=2.0,
+*         NDELTA=9.0,
+*         DELTA(1)=-12.0,-9.0,-6.0,-3.0,0.0,6.0,12.0,18.0,24.0,
+*         PHETE=0.00290, PHETEP=0.002246,
+*         CHRDFI=0.875, CHRDFO=0.687,
+*         SPANFI=7.655, SPANFO=13.346,
+*         CPRMEI(1)=4.580,4.586,4.592,4.598,4.605,4.611,4.617,4.623,
+*         CPRMEO(1)=3.761,3.766,3.771,3.776,3.781,3.786,3.791,3.796,
+*         NTYPE=1.0$
+
+
+* At this point, we are going to terminate the case so that we can get 
+* the flap effects. We can't save this data, as we are
+* also going to do control surfaces on the horizontal tail.
+
+CASEID FLAPS: ProMecc Freccia Aircraft
+NEXT CASE
+
+
+*************************************************************
+*    Asymmetrical Control Deflection parameters : Ailerons
+*************************************************************
+
+ $ASYFLP STYPE=4.0, NDELTA=9.0,
+         DELTAL(1)=-12.0,-9.0,-6.0,-3.0,0.0,6.0,12.0,18.0,24.0,
+         DELTAR(1)=24.0,18.0,12.0,6.0,0.0,-3.0,-6.0,-9.0,-12.0,
+         SPANFI=7.655, SPANFO=13.346,
+         PHETE=0.00290,
+         CHRDFI=0.875, CHRDFO=0.687$
+		 
+		 
+CASEID AILERONS: ProMecc Freccia Aircraft
+SAVE
+NEXT CASE
+
+
+*************************************************
+*       Horizontal Tail Sectional Characteristics  pg 39-40
+*************************************************
+
+NACA-H-6-631-012
+
+*********************************************
+*         Horizontal Tail planform variables   pg 37-38
+*********************************************
+ $HTPLNF CHRDR=2.953,CHRDTP=1.969,
+         SSPNE=4.431,SSPN=4.875,
+		 SAVSI=1.0,
+         CHSTAT=0.25,TWISTA=0.0,DHDADI=0.0,DHDADO=0.0,TYPE=1.0$
+
+		 
+******************************************
+*         Vertical Tail planform variables   pg 37-38
+******************************************
+ $VTPLNF CHRDR=4.055,CHRDTP=2.116,
+         SSPNE=4.167,SSPN=4.432,
+		 SAVSI=36.0,
+         CHSTAT=.25,TYPE=1.0$
+
+******************************************
+*         Ventral Fin planform variables     pg 37-38
+******************************************
+
+ $VFPLNF CHRDR=4.43, CHRDTP=0.0, CHSTAT=0.0, DHDADO=0.0, 
+         SAVSI=86.0, SSPN=0.45,  SSPNE=0.44, TYPE=1.0$
+
+***********************************
+*    Elevator Deflection parameters
+***********************************
+
+ $SYMFLP FTYPE=1.0,
+         NDELTA=9.0, DELTA(1)=-20.0,-15.0,-10.0,-5.0,0.0,5.0,10.0,15.0,20.0,
+         PHETE=0.003, PHETEP=0.002,
+         CHRDFI=1.058,  CHRDFO=0.697,
+         SPANFI=0.001,   SPANFO=4.855,
+         CB=0.242,      TC=0.23,         NTYPE=1.0$
+
+**************************************
+*       Vertical Tail Sectional Characteristics  pg 39-40
+**************************************
+
+NACA-V-6-631-012
+
+**********************************************
+*       Ventral Fin Sectional Characteristics  pg 39-40
+**********************************************
+* Same build up as wing, if you'd like to use that instead.
+
+*NACA F 4 0012
+
+*********************************
+*    Propeller Power Effects parameters  pg 51
+*********************************
+
+ $PROPWR AIETLP=0.0,NENGSP=1.0,THSTCP=0.0, 
+         PHALOC=0.0,PHVLOC=0.0,PRPRAD=3.117, 
+         ENGFCT=0.8,NOPBPE=3.0,
+         YP=0.0,CROT=.FALSE.$
+
+CASEID TOTAL: ProMecc Freccia Aircraft

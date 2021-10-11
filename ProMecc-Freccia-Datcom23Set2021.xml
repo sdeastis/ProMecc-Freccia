@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSim.xsl"?>
+<fdm_config name="ProMecc-Freccia" version="2.0" release="ALPHA"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
+
+ <fileheader>
+  <author> Aeromatic v 0.96 </author>
+  <filecreationdate>2021-09-10</filecreationdate>
+  <version>$Revision: 1.20 $</version>
+  <description> Models a ProMecc-Freccia. </description>
+ </fileheader>
+
+<!--
+  File:     ProMecc-Freccia.xml
+  Inputs:
+    name:          ProMecc-Freccia
+    type:          light single
+    max weight:    992.25 lb
+    wing span:     28.797337 ft
+    length:        23.783969 ft
+    wing area:     109.04905493 sq-ft
+    gear type:     tricycle
+    castering:     
+    retractable?:  no
+    # engines:     1
+    engine type:   piston
+    engine layout: forward fuselage
+    yaw damper?    no
+
+  Outputs:
+    wing loading:  9.10 lb/sq-ft
+    payload:       194.9 lbs
+    CL-alpha:      5 per radian
+    CL-0:          0.25
+    CL-max:        1.4
+    CD-0:          0.028
+    K:             0.04
+
+-->
+ <metrics file="Systems/ProMecc-Freccia-metrics"/>
+ <mass_balance file="Systems/ProMecc-Freccia-mass-balance"/>
+ <ground_reactions file="Systems/ProMecc-Freccia-ground-reactions"/>
+
+
+ <propulsion>
+
+   <engine file="ROTAX912ULS_engine">
+    <location unit="IN">
+      <x>  36.614 </x>
+      <y>   0.00 </y>
+      <z>   0.00 </z>
+    </location>
+    <orient unit="DEG">
+      <pitch> 0.00 </pitch>
+      <roll>  0.00 </roll>
+      <yaw>   0.00 </yaw>
+    </orient>
+    <feed>0</feed>
+	<feed>1</feed>
+    <thruster file="DUC-HELICES_Swirl3_prop">
+     <sense> 1 </sense>
+     <location unit="IN">
+       <x>   0.00 </x>
+       <y>   0.00 </y>
+       <z>   0.00 </z>
+     </location>
+     <orient unit="DEG">
+       <pitch> 0.00 </pitch>
+       <roll>  0.00 </roll>
+       <yaw>   0.00 </yaw>
+     </orient>
+    </thruster>
+  </engine>
+
+  <tank type="FUEL" number="0">
+     <location unit="IN">
+       <x>  90.551 </x>
+       <y> -22.677 </y>
+       <z> -12.000 </z>
+     </location>
+     <capacity unit="LBS">  87.47 </capacity>  <!-- 55l of fuel -->
+     <contents unit="LBS">  36.71 </contents>
+	 <type>AVGAS</type>
+  </tank>
+
+  <tank type="FUEL" number="1">
+     <location unit="IN">
+       <x>  90.551 </x>
+       <y>  22.677 </y>
+       <z> -12.000 </z>
+     </location>
+     <capacity unit="LBS">  87.47 </capacity> <!-- 55l of fuel -->
+     <contents unit="LBS">  36.71 </contents>
+	 <type>AVGAS</type>
+  </tank>
+
+ </propulsion>
+
+ <flight_control file="Systems/ProMecc-Freccia-fcs"/>
+
+ <aerodynamics file="Systems/ProMecc-Freccia-aerodynamics.xml"/>
+
+ <external_reactions>
+ </external_reactions>
+
+</fdm_config>

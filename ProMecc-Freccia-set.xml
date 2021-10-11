@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2021 Salvatore De Astis (sdeastis) -->
+
+<PropertyList>
+
+	<sim>
+		<description>ProMecc Freccia 100R</description>
+		<long-description>
+			The Freccia aircraft is a non-aerobatic category ultralight aircraft.
+			The aircraft is intended for:
+				• Recreation and tourism;
+				• Piloting teaching;
+				• Taking aerial views;
+				• The transport of a passenger;
+				• Carrying a maximum load of 25 kg in the trunk; 		
+			The Freccia aircraft is a two-seater, low-wing monoplane, with driving propeller, front wheel steering, classic aerodynamic configuration. 
+			This variant represents the 100R, equipped with a 100hp ROTAX 912 ULS engine.
+			The materials used in the structures are composites of and glass-resin carbon fibers for
+			aeronautical applications, light aeronautical alloys, ferrous parts in Ni-Cr steel and
+			bolts of class 8.8 (ISO R80) and 10.9 (ISO R100). 
+		</long-description>
+		
+		<it>
+            <long-description>
+				Il velivolo Freccia è un ultraleggero di categoria non acrobatica.
+				L'aereo è destinato a:
+					• Ricreazione e turismo;
+					• Insegnamento pilota;
+					• Ripresa di vedute aeree;
+					• Il trasporto di un passeggero;
+					• Trasportare un carico massimo di 25 kg nel bagagliaio;
+				Il velivolo Freccia è un monoplano biposto ad ala bassa, con elica motrice, ruota anteriore sterzante, classica configurazione aerodinamica.
+				Questa variante rappresenta il 100R, equipaggiato con un motore ROTAX 912 ULS da 100cv.
+				I materiali utilizzati nelle strutture sono compositi e fibre di carbonio resina vetro per
+				applicazioni aeronautiche, leghe aeronautiche leggere, parti ferrose in acciaio Ni-Cr e
+				bulloni di classe 8.8 (ISO R80) e 10.9 (ISO R100). 
+			</long-description>
+        </it>
+		
+		<author>Original by SDeAstis (Salvatore De Astis )</author>
+		
+		<status>Early developement</status>
+		<aircraft-version>2021.1</aircraft-version>
+        <minimum-fg-version>2018.2.0</minimum-fg-version>
+		<rating>
+            <FDM type="int">1</FDM>
+            <systems type="int">0</systems>
+            <model type="int">1</model>
+            <cockpit type="int">0</cockpit>
+        </rating>
+		
+		<flight-model>jsb</flight-model>
+		
+		<aero>ProMecc-Freccia</aero>
+		
+		<model>
+			<path type="string">Aircraft/ProMecc-Freccia/Models/ProMecc-Freccia.xml</path>
+		</model>
+		
+		        <!-- Splash screens. One is randomly chosen when FlightGear starts -->
+        <previews>
+            <preview>
+                <type>cockpit</type>
+                <path>Previews/ProMecc-Freccia_preview0.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+        </previews>
+        <startup>
+            <splash-texture>Aircraft/ProMecc-Freccia/Previews/ProMecc-Freccia_preview0.jpg</splash-texture>
+            <season-winter type="bool">false</season-winter>
+        </startup>
+		
+		<systems></systems>
+		
+		<sound>
+			<path archive="y">Aircraft/ProMecc-Freccia/Sounds/sound.xml</path>
+		</sound>
+		
+		<controls></controls>
+	</sim>
+
+</PropertyList>

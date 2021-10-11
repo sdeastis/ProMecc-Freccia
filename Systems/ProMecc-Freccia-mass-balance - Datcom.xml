@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<!-- ProMecc Freccia JSBsim -->
+<!-- Copyright (c) 2021 Salvatore De Astis (sdeastis) -->
+
+<!-- First Tuned the 22-Sep-2021 -->
+
+ <mass_balance>
+ 
+   <ixx unit="SLUG*FT2">       305 </ixx>
+   <iyy unit="SLUG*FT2">       370 </iyy>
+   <izz unit="SLUG*FT2">       616 </izz>
+   <emptywt unit="LBS" >       650 </emptywt>
+   <location name="CG" unit="IN">
+     <x>  82.07 </x>
+     <y>   0.00 </y>
+     <z> -15.00 </z>
+   </location>
+   
+	<pointmass name="PILOT">
+		<weight unit="LBS"> 176.0 </weight>
+		<location name="POINTMASS" unit="IN">
+		<x>  82.07  </x>
+		<y> -10.00 </y>
+		<z> -13.00 </z>
+		</location>
+	</pointmass>
+	
+	<pointmass name="CO-PILOT">
+		<weight unit="LBS"> 0.0 </weight>
+		<location name="POINTMASS" unit="IN">
+		<x>  82.07  </x>
+		<y>  10.00 </y>
+		<z> -13.00 </z>
+		</location>
+	</pointmass>
+	
+	<pointmass name="LUGGAGE">
+		<weight unit="LBS"> 0.0 </weight>
+		<location name="POINTMASS" unit="IN">
+		<x> 119.685 </x>
+		<y>   0.000 </y>
+		<z>   0.000 </z>
+		</location>
+	</pointmass>
+	  
+   <!--pointmass name="Payload">
+    <description> 195 LBS + full (147 LBS) fuel should bring model up to entered max weight</description>
+    <weight unit="LBS">     97.5 </weight>
+    <location name="POINTMASS" unit="IN">
+      <x> 132.45 </x>
+      <y>   0.00 </y>
+      <z>  -7.14 </z>
+    </location>
+  </pointmass--> 
+
+ </mass_balance>
+
