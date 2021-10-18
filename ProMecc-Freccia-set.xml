@@ -77,6 +77,18 @@
 			<path archive="y">Aircraft/ProMecc-Freccia/Sounds/sound.xml</path>
 		</sound>
 		
+		<view n="0">
+			<name>Pilot View</name>
+			<internal archive="y">true</internal>
+			<config>
+				<x-offset-m archive="y">-0.15</x-offset-m>
+				<y-offset-m archive="y">0.40</y-offset-m>
+				<z-offset-m archive="y">-0.2</z-offset-m>
+				<pitch-offset-deg>-15</pitch-offset-deg>
+				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
+			</config>
+		</view>
+		
 		<controls></controls>
 	</sim>
 
