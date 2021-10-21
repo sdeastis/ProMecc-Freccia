@@ -56,6 +56,10 @@
 		
 		<model>
 			<path type="string">Aircraft/ProMecc-Freccia/Models/ProMecc-Freccia.xml</path>
+			<ProMecc-Freccia>
+                <fg1000 type="bool">true</fg1000>
+                <fg1000-available type="bool">true</fg1000-available>
+            </ProMecc-Freccia>
 		</model>
 		
 		        <!-- Splash screens. One is randomly chosen when FlightGear starts -->
@@ -71,7 +75,11 @@
             <season-winter type="bool">false</season-winter>
         </startup>
 		
-		<systems></systems>
+		<systems>
+			<electrical>
+				<path></path>
+			</electrical>
+		</systems>
 		
 		<sound>
 			<path archive="y">Aircraft/ProMecc-Freccia/Sounds/sound.xml</path>
@@ -85,11 +93,19 @@
 				<y-offset-m archive="y">0.40</y-offset-m>
 				<z-offset-m archive="y">-0.2</z-offset-m>
 				<pitch-offset-deg>-15</pitch-offset-deg>
-				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
+				<default-field-of-view-deg type="double">65</default-field-of-view-deg>
 			</config>
 		</view>
-		
-		<controls></controls>
+	
+		<controls>
+		</controls>
 	</sim>
-
+    
+	<nasal>
+	
+        <ProMecc-Freccia>
+            <file>Nasal/freccia-electrical-fg1000.nas</file>
+        </ProMecc-Freccia>
+		
+    </nasal>
 </PropertyList>

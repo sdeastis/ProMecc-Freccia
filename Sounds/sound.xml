@@ -88,11 +88,7 @@ baboon922@hotmail.com
 					</greater-than>
 					<or>
 						<greater-than>
-							<property>ch750stol/door-left-norm</property>
-							<value>0.01</value>
-						</greater-than>
-						<greater-than>
-							<property>ch750stol/door-right-norm</property>
+							<property>ProMecc-Freccia/canopy-norm</property>
 							<value>0.01</value>
 						</greater-than>
 						<not>
@@ -131,11 +127,7 @@ baboon922@hotmail.com
 					</greater-than>
 					<or>
 						<greater-than>
-							<property>ch750stol/door-left-norm</property>
-							<value>0.01</value>
-						</greater-than>
-						<greater-than>
-							<property>ch750stol/door-right-norm</property>
+							<property>ProMecc-Freccia/canopy-norm</property>
 							<value>0.01</value>
 						</greater-than>
 						<not>
@@ -178,11 +170,7 @@ baboon922@hotmail.com
 						<value>5</value>
 					</greater-than>
 					<less-than-equals>
-						<property>ch750stol/door-left-norm</property>
-						<value>0.01</value>
-					</less-than-equals>
-					<less-than-equals>
-						<property>ch750stol/door-right-norm</property>
+						<property>ProMecc-Freccia/canopy-norm</property>
 						<value>0.01</value>
 					</less-than-equals>
 				</and>
@@ -218,11 +206,7 @@ baboon922@hotmail.com
 					</greater-than>
 					<or>
 						<less-than-equals>
-							<property>ch750stol/door-left-norm</property>
-							<value>0.01</value>
-						</less-than-equals>
-						<less-than-equals>
-							<property>ch750stol/door-right-norm</property>
+							<property>ProMecc-Freccia/canopy-norm</property>
 							<value>0.01</value>
 						</less-than-equals>
 					</or>
@@ -258,11 +242,7 @@ baboon922@hotmail.com
         <not>
           <and>
             <equals>
-              <property>ch750stol/door-left-norm</property>
-              <value>0</value>
-            </equals>
-            <equals>
-              <property>ch750stol/door-right-norm</property>
+              <property>ProMecc-Freccia/canopy-norm</property>
               <value>0</value>
             </equals>
             <property>sim/current-view/internal</property>
@@ -588,11 +568,7 @@ baboon922@hotmail.com
 					<property>velocities/airspeed-kt</property>
 					<or>
 						<greater-than>
-							<property>ch750stol/door-left-norm</property>
-							<value>0.01</value>
-						</greater-than>
-						<greater-than>
-							<property>ch750stol/door-right-norm</property>
+							<property>ProMecc-Freccia/canopy-norm</property>
 							<value>0.01</value>
 						</greater-than>
 						<not>
@@ -633,11 +609,7 @@ baboon922@hotmail.com
 				<and>
 					<property>velocities/airspeed-kt</property>
 					<less-than-equals>
-						<property>ch750stol/door-left-norm</property>
-						<value>0.01</value>
-					</less-than-equals>
-					<less-than-equals>
-						<property>ch750stol/door-right-norm</property>
+						<property>ProMecc-Freccia/canopy-norm</property>
 						<value>0.01</value>
 					</less-than-equals>
 					<not>
@@ -686,7 +658,7 @@ baboon922@hotmail.com
 			<path>BaBoOn-P92-echo-Door_close.wav</path>
 			<condition>
 				<equals>
-					<property>ch750stol/door-left-norm</property>
+					<property>ProMecc-Freccia/canopy-norm</property>
 					<value>0</value>
 				</equals>
 			</condition>
@@ -707,51 +679,9 @@ baboon922@hotmail.com
 			<path>BaBoOn-P92-echo-Door_close.wav</path>
 			<condition>
 				<equals>
-					<property>ch750stol/door-right-norm</property>
+					<property>ProMecc-Freccia/canopy-norm</property>
 					<value>0</value>
 				</equals>
-			</condition>
-			<position>
-				<x>-1</x>
-				<y>-5</y>
-				<z>-0.5</z>
-			</position>
-			<volume>
-				<factor>0.3</factor>
-			</volume>
-			<reference-dist>15</reference-dist>
-			<max-dist>50</max-dist>
-		</door>
-		<door>
-			<name>open crew frontdoor</name>
-			<mode>once</mode>
-			<path>BaBoOn-P92-echo-Door_open.wav</path>
-			<condition>
-				<greater-than>
-					<property>ch750stol/door-left-norm</property>
-					<value>0</value>
-				</greater-than>
-			</condition>
-			<position>
-				<x>-1.0</x>
-				<y> 3.5</y>
-				<z>-0.5</z>
-			</position>
-			<volume>
-				<factor>0.3</factor>
-			</volume>
-			<reference-dist>15</reference-dist>
-			<max-dist>50</max-dist>
-		</door>
-		<door>
-			<name>open passenger frontdoor</name>
-			<mode>once</mode>
-			<path>BaBoOn-P92-echo-Door_open.wav</path>
-			<condition>
-				<greater-than>
-					<property>ch750stol/door-right-norm</property>
-					<value>0</value>
-				</greater-than>
 			</condition>
 			<position>
 				<x>-1</x>
