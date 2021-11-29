@@ -11,7 +11,7 @@
 
     <model>
         <name>fg10001</name>
-        <path>Aircraft/Instruments-3d/FG1000/GDU104X/GDU-1044B.1.xml</path>
+        <path>Aircraft/Instruments-3d/FG1000/GDU104X/GDU-1040.1.xml</path>
         <condition>
 			<property>sim/model/ProMecc-Freccia/fg1000</property>
         </condition>

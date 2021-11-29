@@ -76,9 +76,6 @@
         </startup>
 		
 		<systems>
-			<electrical>
-				<path></path>
-			</electrical>
 		</systems>
 		
 		<sound>
