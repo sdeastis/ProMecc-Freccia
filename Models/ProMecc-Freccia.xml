@@ -38,6 +38,9 @@
     <model>
         <name>altimeter</name>
         <path>Aircraft\Instruments-3d\alt\alt.xml</path>
+		<condition>
+			<property>sim/model/ProMecc-Freccia/glass-cockpit</property>
+        </condition>
         <offsets>
             <x-m>-1.05</x-m>
             <y-m>-0.04</y-m>
@@ -48,6 +51,9 @@
     <model>
         <name>vsi</name>
         <path>Aircraft\Instruments-3d\vsi\vsi.xml</path>
+		<condition>
+			<property>sim/model/ProMecc-Freccia/glass-cockpit</property>
+        </condition>
         <offsets>
             <x-m>-1.05</x-m>
             <y-m>-0.04</y-m>
@@ -58,6 +64,9 @@
     <model>
         <name>compass</name>
         <path>Aircraft\Instruments-3d\mag-compass.xml</path>
+		<condition>
+			<property>sim/model/ProMecc-Freccia/glass-cockpit</property>
+        </condition>
         <offsets>
             <x-m>-1.05</x-m>
             <y-m>0.04</y-m>
@@ -68,6 +77,9 @@
     <model>
         <name>asi</name>
         <path>Aircraft\Instruments-3d\asi\asi.xml</path>
+		<condition>
+			<property>sim/model/ProMecc-Freccia/glass-cockpit</property>
+        </condition>
         <offsets>
             <x-m>-1.05</x-m>
             <y-m>0.04</y-m>

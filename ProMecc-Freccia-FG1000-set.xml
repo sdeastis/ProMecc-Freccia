@@ -5,7 +5,8 @@
 <PropertyList>
 
 	<sim>
-		<description>ProMecc Freccia 100R</description>
+		<variant-of>ProMecc-Freccia</variant-of>
+		<description>ProMecc Freccia 100R (FG1000 Glass Cockpit)</description>
 		<long-description>
 			The Freccia aircraft is a non-aerobatic category ultralight aircraft.
 			The aircraft is intended for:
@@ -57,9 +58,9 @@
 		<model>
 			<path type="string">Aircraft/ProMecc-Freccia/Models/ProMecc-Freccia.xml</path>
 			<ProMecc-Freccia>
-                <fg1000 type="bool">false</fg1000>
-                <fg1000-available type="bool">false</fg1000-available>
-				<glass-cockpit type="bool">false</glass-cockpit>
+                <fg1000 type="bool">true</fg1000>
+                <fg1000-available type="bool">true</fg1000-available>
+				<glass-cockpit type="bool">true</glass-cockpit>
             </ProMecc-Freccia>
 		</model>
 		
