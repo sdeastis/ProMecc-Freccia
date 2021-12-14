@@ -8,7 +8,18 @@
         <pitch-deg>-3.0</pitch-deg>
         <z-m>-0.065</z-m>
     </offsets-->
-
+	
+	<model>
+		<name>mags</name>
+		<path>Interior/Instruments/magneto-switch/mags.xml</path>
+		<offsets>
+			<x-m>-1.05</x-m>
+			<y-m>-0.44</y-m>
+			<z-m> 0.11</z-m>
+			<pitch-deg>-7</pitch-deg>
+		</offsets>
+	</model>
+	
     <model>
         <name>fg10001</name>
         <path>Aircraft/Instruments-3d/FG1000/GDU104X/GDU-1040.1.xml</path>
