@@ -15,8 +15,19 @@
 		<offsets>
 			<x-m>-1.05</x-m>
 			<y-m>-0.44</y-m>
-			<z-m> 0.11</z-m>
-			<pitch-deg>-7</pitch-deg>
+			<z-m> 0.12</z-m>
+			<!--pitch-deg>-7</pitch-deg-->
+		</offsets>
+	</model>
+
+	<model>
+		<name>asi</name>
+		<path>Interior/Instruments/asi/asi.xml</path>
+		<offsets>
+			<x-m>-1.07</x-m>
+			<y-m>-0.354</y-m>
+			<z-m> 0.24</z-m>
+			<!--pitch-deg>-7</pitch-deg-->
 		</offsets>
 	</model>
 	

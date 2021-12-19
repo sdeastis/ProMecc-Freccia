@@ -96,6 +96,14 @@
 		</view>
 	
 		<controls>
+		 <engines n="0">
+			<engine n="0">
+				<magnetos type="int">0</magnetos>
+				<magnetos-switch type="int">0</magnetos-switch>
+				<mixture type="double">0</mixture>
+				<primer-pump type="bool">0</primer-pump>
+			</engine>
+		 </engines>
 		</controls>
 	</sim>
     
