@@ -13,24 +13,69 @@
 		<name>mags</name>
 		<path>Interior/Instruments/magneto-switch/mags.xml</path>
 		<offsets>
-			<x-m>-1.05</x-m>
-			<y-m>-0.44</y-m>
-			<z-m> 0.12</z-m>
+			<x-m>-1.060</x-m>
+			<y-m>-0.440</y-m>
+			<z-m> 0.120</z-m>
 			<!--pitch-deg>-7</pitch-deg-->
 		</offsets>
 	</model>
 
 	<model>
 		<name>asi</name>
-		<path>Interior/Instruments/asi/asi.xml</path>
+		<path>Interior/Instruments/asi300/asi300-3d.xml</path>
 		<offsets>
-			<x-m>-1.07</x-m>
-			<y-m>-0.354</y-m>
-			<z-m> 0.24</z-m>
+			<x-m>-1.060</x-m>
+			<y-m>-0.355</y-m>
+			<z-m> 0.238</z-m>
 			<!--pitch-deg>-7</pitch-deg-->
 		</offsets>
 	</model>
-	
+
+
+	<model>
+		<name>ai</name>
+		<path>Interior/Instruments/ai/ai.xml</path>
+		<offsets>
+			<x-m>-1.058</x-m>
+			<y-m>-0.252</y-m>
+			<z-m> 0.238</z-m>
+			<!--pitch-deg>-7</pitch-deg-->
+		</offsets>
+	</model>
+
+	<model>
+		<name>alt</name>
+		<path>Interior/Instruments/alt-2/alt2-3d.xml</path>
+		<offsets>
+			<x-m>-1.058</x-m>
+			<y-m>-0.149</y-m>
+			<z-m> 0.238</z-m>
+			<!--pitch-deg>-7</pitch-deg-->
+		</offsets>
+	</model>
+
+	<model>
+		<name>vsi</name>
+		<path>Interior/Instruments/vsi/vsi.xml</path>
+		<offsets>
+			<x-m>-1.058</x-m>
+			<y-m>-0.149</y-m>
+			<z-m> 0.135</z-m>
+			<!--pitch-deg>-7</pitch-deg-->
+		</offsets>
+	</model>
+
+	<model>
+		<name>tc</name>
+		<path>Interior/Instruments/tc/tc.xml</path>
+		<offsets>
+			<x-m>-1.058</x-m>
+			<y-m>-0.252</y-m>
+			<z-m> 0.135</z-m>
+			<!--pitch-deg>-7</pitch-deg-->
+		</offsets>
+	</model>
+
     <model>
         <name>fg10001</name>
         <path>Aircraft/Instruments-3d/FG1000/GDU104X/GDU-1040.1.xml</path>
