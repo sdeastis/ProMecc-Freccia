@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+    <filter>
+        <name>EGT 100 HP lowpass</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>4.0</filter-time>
+        <input>
+            <property>engines/engine[0]/egt-degf</property>
+            <!-- 1200 * scale + offset = 0.0
+           1700 * scale + offset = 1.0 -->
+            <scale>0.002</scale>
+            <offset>-2.4</offset>
+        </input>
+        <output>engines/engine[0]/egt-norm</output>
+        <min>0.0</min>
+        <max>1.0</max>
+    </filter>
+
+    <filter>
+        <name>Tank 0 Indicated Level</name>
+        <type>exponential</type>
+        <filter-time>3.0</filter-time>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>/systems/electrical/outputs/instr-ignition-switch</property>
+                    <value>12.0</value>
+                </greater-than>
+            </condition>
+            <property>/consumables/fuel/tank[0]/level-gal_us</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/consumables/fuel/tank[0]/indicated-level-gal_us</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Tank 1 Indicated Level</name>
+        <type>exponential</type>
+        <filter-time>3.0</filter-time>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>/systems/electrical/outputs/instr-ignition-switch</property>
+                    <value>12.0</value>
+                </greater-than>
+            </condition>
+            <property>/consumables/fuel/tank[1]/level-gal_us</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/consumables/fuel/tank[1]/indicated-level-gal_us</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine Indicated Oil Temperature</name>
+        <type>exponential</type>
+        <filter-time>3.0</filter-time>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>/systems/electrical/outputs/instr-ignition-switch</property>
+                    <value>12.0</value>
+                </greater-than>
+            </condition>
+            <property>/engines/active-engine/oil-final-temperature-degf</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/engines/active-engine/indicated-oil-final-temperature-degf</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine Indicated Oil Pressure</name>
+        <type>exponential</type>
+        <filter-time>3.0</filter-time>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>/systems/electrical/outputs/instr-ignition-switch</property>
+                    <value>12.0</value>
+                </greater-than>
+            </condition>
+            <property>/engines/active-engine/oil-pressure-psi</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/engines/active-engine/indicated-oil-pressure-psi</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine Total Hobbs Hours</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <div>
+                    <sum>
+                        <property>/sim/time/hobbs/engine[0]</property>
+                        <property>/sim/time/hobbs/engine[1]</property>
+                    </sum>
+                    <value>3600.0</value>
+                </div>
+            </expression>
+        </input>
+        <output>
+            <property>/instrumentation/clock/hobbs-meter-hours</property>
+        </output>
+    </filter>
+
+    <logic>
+        <name>Comm 0 Serviceable</name>
+        <input>
+            <greater-than>
+                <property>systems/electrical/outputs/comm[0]</property>
+                <value>6.0</value>
+            </greater-than>
+        </input>
+        <output>
+            <property>instrumentation/comm[0]/serviceable</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Comm 0 On/Off</name>
+        <input>
+            <and>
+                <property>instrumentation/comm[0]/serviceable</property>
+                <property>instrumentation/comm[0]/power-btn</property>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/ProMecc-Freccia/lighting/comm0-power</property>
+        </output>
+    </logic>
+
+    <filter>
+        <name>Comm 0 Dim/Bright</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>/sim/model/ProMecc-Freccia/lighting/comm0-power</property>
+            </condition>
+            <property>/controls/lighting/radio-norm</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/sim/model/ProMecc-Freccia/lighting/comm0</property>
+        </output>
+    </filter>
+
+    <logic>
+        <name>Turn Indicator Serviceable</name>
+        <input>
+            <greater-than>
+                <property>systems/electrical/outputs/turn-coordinator</property>
+                <value>6.0</value>
+            </greater-than>
+        </input>
+        <output>
+            <property>instrumentation/turn-coordinator/serviceable</property>
+        </output>
+    </logic>
+
+</PropertyList>

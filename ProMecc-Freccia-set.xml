@@ -77,6 +77,17 @@
         </startup>
 		
 		<systems>
+			<path>Aircraft/ProMecc-Freccia/Systems/ProMecc-Freccia-systems.xml</path>
+
+            <property-rule n="100">
+                <name>FiltersOnly</name>
+                <path>Aircraft/ProMecc-Freccia/Systems/ProMecc-Freccia-instruments.xml</path>
+            </property-rule>
+
+            <property-rule n="108">
+                <path>Aircraft/ProMecc-Freccia/Systems/ProMecc-Freccia-electrical.xml</path>
+            </property-rule>
+
 		</systems>
 		
 		<sound>
@@ -108,10 +119,8 @@
 	</sim>
     
 	<nasal>
-	
-        <ProMecc-Freccia>
-            <file>Nasal/freccia-electrical-fg1000.nas</file>
-        </ProMecc-Freccia>
-		
+        <electrical>
+            <file>Aircraft/ProMecc-Freccia/Nasal/ProMecc-Freccia-electrical.nas</file>
+        </electrical>
     </nasal>
 </PropertyList>
