@@ -107,14 +107,36 @@
 		</view>
 	
 		<controls>
-		 <engines n="0">
-			<engine n="0">
-				<magnetos type="int">0</magnetos>
-				<magnetos-switch type="int">0</magnetos-switch>
-				<mixture type="double">0</mixture>
-				<primer-pump type="bool">0</primer-pump>
-			</engine>
-		 </engines>
+			<engines n="0">
+				<engine n="0">
+					<magnetos type="int">0</magnetos>
+					<magnetos-switch type="int">0</magnetos-switch>
+					<mixture type="double">0</mixture>
+					<primer-pump type="bool">0</primer-pump>
+				</engine>
+			</engines>
+
+        	<circuit-breakers>
+				<master type="bool">true</master>
+            	<start-armed type="bool">true</start-armed>
+				<fuel-pump type="bool">false</fuel-pump>
+				<master-avionics type="bool">false</master-avionics>
+				<master-instruments type="bool">false</master-instruments>
+				<trim type="bool">true</trim>
+            	<flaps type="bool">true</flaps>
+     
+        	</circuit-breakers>
+
+        	<switches>
+            	<master-avionics type="bool">false</master-avionics>
+				<master-instruments type="bool">false</master-instruments>
+            	<master-alt type="bool">false</master-alt>
+            	<master-bat type="bool">false</master-bat>
+				<fuel-pump type="bool">false</fuel-pump>
+            	<magnetos type="int">0</magnetos>
+				<starter type="bool">false</starter>
+        	</switches>
+
 		</controls>
 	</sim>
     
