@@ -2,130 +2,123 @@
 
 <PropertyList>
 
-	<path>mag_switch.ac</path>
-	
-	 <animation>
-		<type>scale</type>
-		<x-offset>0.85</x-offset>
-		<y-offset>0.85</y-offset>
-		<z-offset>0.85</z-offset>
-	</animation>
+ <path>mag_switch.ac</path>
 
-	<animation>
-		<type>pick</type>
-		<object-name>key</object-name>
-		<object-name>mags.outer</object-name>
-		<object-name>mags.inner</object-name>
-		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[0]/magnetos</property>
-				<step>1</step>
-				<min>0</min>
-				<max>4</max>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>setprop("/sim/sounde/switch3", 1);</script>
-			</binding>
-			<mod-up>
-				<binding>
-					<condition>
-						<equals>
-							<property>controls/engines/engine[0]/magnetos</property>
-							<value>4</value>
-						</equals>
-					</condition>
-					<command>property-assign</command>
-					<property>controls/engines/engine[0]/magnetos</property>
-					<value>3</value>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>setprop("/sim/sounde/switch3", 1);</script>
-				</binding>
-			</mod-up>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[0]/magnetos</property>
-				<step>-1</step>
-				<min>0</min>
-				<max>4</max>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>setprop("/sim/sounde/switch3", 1);</script>
-			</binding>
-		</action>
-		<hovered>
-			<binding>
-				<command>set-tooltip</command>
-				<tooltip-id>magneto-switch</tooltip-id>
-				<label>Magnetos: %s</label>
-				<property>controls/engines/engine/magnetos</property>
-				<mapping>nasal</mapping>
-				<script>
-				var m = getprop("/controls/engines/engine/magnetos");
-				if (m == 1) return 'RIGHT';
-				if (m == 2) return 'LEFT';
-				if (m == 3) return 'BOTH';
-				if (m == 4) return 'START';
-				return 'OFF';
-				</script>
-			</binding>
-		</hovered>
-	</animation>
+ <animation>
+  <type>material</type>
+  <object-name>key</object-name>
+  <object-name>start</object-name>
+  <object-name>magsw</object-name>
+  <emission>
+   <red>0.075</red>
+   <green>0.015</green>
+   <blue>0.00001</blue>
+   <factor-prop>/sim/model/material/instruments/factor</factor-prop>
+  </emission>
+ </animation>
 
-	<animation>
-		<type>pick</type>
-		<object-name>key</object-name>
-		<object-name>mags.outer</object-name>
-		<object-name>mags.inner</object-name>
-		<action>
-			<button>0</button>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/engines/engine/starter</property>
-			</binding>
-			<mod-up>
-				<binding>
-					<command>property-toggle</command>
-					<property>controls/engines/engine/starter</property>
-				</binding>
-			</mod-up>
-			<binding>
-				<command>property-toggle</command>
-				<property>sim/model/sound/click</property>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<name>mags-key</name>
-		<type>rotate</type>
-		<object-name>mags.inner</object-name>
-		<object-name>key</object-name>
-		<property>controls/engines/engine[0]/magnetos</property>
-		<factor>30</factor>
-		<center>
-			<x-m>0</x-m>
-			<y-m>0</y-m>
-			<z-m>0</z-m>
-		</center>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-	</animation>
+<!--		magneto switch		-->
+ <animation>
+   <type>knob</type>
+   <object-name>click-L</object-name>
+   <object-name>click-R</object-name>
+   
+   <visible>false</visible>
+   <action>
+     <binding>
+       <command>property-adjust</command>
+       <property>/controls/switches/magnetos</property>
+       <factor>1</factor>
+       <min>0</min>
+       <max>3</max>
+     </binding>
+   </action>
+   <hovered>
+     <binding>
+       <command>set-tooltip</command>
+       <tooltip-id>magneto-switch</tooltip-id>
+       <label>Magnetos: %s</label>
+       <property>controls/engines/engine/magnetos</property>
+       <mapping>nasal</mapping>
+       <script>
+         var m = getprop('controls/engines/engine/magnetos');
+         if (m == 1) return 'RIGHT';
+         if (m == 2) return 'LEFT';
+         if (m == 3) return 'BOTH';
+         return 'OFF';
+       </script>
+    </binding>
+  </hovered>
+ </animation>
+ 
+
+<!--		Starter		-->
+ <animation>
+   <type>pick</type>
+   <object-name>click-S</object-name>
+   <visible>false</visible>
+   <action>
+     <name>starter</name>
+     <button>0</button>
+     <binding>
+       <command>property-assign</command>
+       <property>/controls/switches/starter</property>
+       <value >1</value>
+     </binding>
+     <mod-up>
+       <binding>
+         <command>property-assign</command>
+         <property>/controls/switches/starter</property>
+         <value>0</value>
+       </binding>
+     </mod-up>
+   </action>
+   
+   <hovered>
+     <binding>
+       <command>set-tooltip</command>
+       <tooltip-id>starter-switch</tooltip-id>
+       <label>Engine Starter</label>
+    </binding>
+  </hovered>
+  
+ </animation>
+<!--   key animations  -->   
+ <animation>
+  <name>mags-key</name>
+  <type>rotate</type>
+  <object-name>key</object-name>
+  <property>/controls/engines/engine/magnetos</property>
+  <factor>30</factor>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+ <type>select</type>
+  <object-name>key</object-name>
+  <condition>
+   <not>
+    <property>/controls/switches/starter</property>
+   </not>
+  </condition>
+</animation>
+
+<animation>
+ <type>select</type>
+  <object-name>start</object-name>
+  <condition>
+    <property>/controls/switches/starter</property>
+  </condition>
+</animation>        
   
 </PropertyList>
 
