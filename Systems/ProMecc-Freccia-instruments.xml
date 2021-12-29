@@ -123,49 +123,6 @@
     </filter>
 
     <logic>
-        <name>Comm 0 Serviceable</name>
-        <input>
-            <greater-than>
-                <property>systems/electrical/outputs/comm[0]</property>
-                <value>6.0</value>
-            </greater-than>
-        </input>
-        <output>
-            <property>instrumentation/comm[0]/serviceable</property>
-        </output>
-    </logic>
-
-    <logic>
-        <name>Comm 0 On/Off</name>
-        <input>
-            <and>
-                <property>instrumentation/comm[0]/serviceable</property>
-                <property>instrumentation/comm[0]/power-btn</property>
-            </and>
-        </input>
-        <output>
-            <property>/sim/model/ProMecc-Freccia/lighting/comm0-power</property>
-        </output>
-    </logic>
-
-    <filter>
-        <name>Comm 0 Dim/Bright</name>
-        <type>gain</type>
-        <input>
-            <condition>
-                <property>/sim/model/ProMecc-Freccia/lighting/comm0-power</property>
-            </condition>
-            <property>/controls/lighting/radio-norm</property>
-        </input>
-        <input>
-            <value>0.0</value>
-        </input>
-        <output>
-            <property>/sim/model/ProMecc-Freccia/lighting/comm0</property>
-        </output>
-    </filter>
-
-    <logic>
         <name>Turn Indicator Serviceable</name>
         <input>
             <greater-than>

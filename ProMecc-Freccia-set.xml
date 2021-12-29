@@ -102,13 +102,17 @@
 			<name>Pilot View</name>
 			<internal archive="y">true</internal>
 			<config>
-				<x-offset-m archive="y">-0.15</x-offset-m>
-				<y-offset-m archive="y">0.40</y-offset-m>
-				<z-offset-m archive="y">-0.2</z-offset-m>
-				<pitch-offset-deg>-15</pitch-offset-deg>
-				<default-field-of-view-deg type="double">65</default-field-of-view-deg>
+				<x-offset-m archive="y">-0.28</x-offset-m>
+				<y-offset-m archive="y">0.42</y-offset-m>
+				<z-offset-m archive="y">-0.29</z-offset-m>
+				<pitch-offset-deg>-10</pitch-offset-deg>
+				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
 			</config>
 		</view>
+
+		<instrumentation>
+			<path>Systems/ProMecc-Freccia-instrumentation.xml</path>
+		</instrumentation>
 	</sim>
 
 		<controls>
@@ -128,13 +132,16 @@
         	</circuit-breakers>
 
         	<switches>
-            	<master-avionics type="bool">true</master-avionics>
-				<master-instruments type="bool">true</master-instruments>
+				<master type="bool">false</master>
+            	<master-avionics type="bool">false</master-avionics>
+				<master-instruments type="bool">false</master-instruments>
             	<master-alt type="bool">true</master-alt>
-            	<master-bat type="bool">true</master-bat>
-				<fuel-pump type="bool">true</fuel-pump>
-				<starter type="bool">false</starter>
+            	<master-bat type="bool">false</master-bat>
 				<magnetos type="int">0</magnetos>
+				<starter type="bool">false</starter>
+				<fuel-pump type="bool">false</fuel-pump>
+				<aux-fuel-pump type="bool">false</aux-fuel-pump>
+				<trim type="bool">true</trim>
         	</switches>
 		</controls>
 

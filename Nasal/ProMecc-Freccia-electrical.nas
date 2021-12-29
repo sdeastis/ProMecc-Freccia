@@ -15,6 +15,9 @@ var ebus2_volts = 0.0;
 
 var ammeter_ave = 0.0;
 
+var old_flap_position = 0;
+var current_flap_position = getprop("/surface-positions/flap-pos-norm");
+
 ##
 # Battery model class.
 #
@@ -226,8 +229,10 @@ var update_virtual_bus = func (dt) {
     }
 
     # switch state
+    var master     = getprop("/controls/switches/magnetos");
     var master_bat = getprop("/controls/switches/master-bat");
     var master_alt = getprop("/controls/switches/master-alt");
+
     if (getprop("/controls/electric/external-power"))
     {
         external_volts = 28;
@@ -236,18 +241,23 @@ var update_virtual_bus = func (dt) {
     # determine power source
     var bus_volts = 0.0;
     var power_source = nil;
-    if ( master_bat ) {
-        bus_volts = battery_volts;
-        power_source = "battery";
+    if ( master > 0 )
+    {
+        if ( master_bat ) {
+            bus_volts = battery_volts;
+            power_source = "battery";
+        }
+        if ( master_alt and (alternator_volts > bus_volts) ) {
+            bus_volts = alternator_volts;
+            power_source = "alternator";
+        }
+        if ( external_volts > bus_volts ) {
+            bus_volts = external_volts;
+            power_source = "external";
+        }    
     }
-    if ( master_alt and (alternator_volts > bus_volts) ) {
-        bus_volts = alternator_volts;
-        power_source = "alternator";
-    }
-    if ( external_volts > bus_volts ) {
-        bus_volts = external_volts;
-        power_source = "external";
-    }
+
+
     # print( "virtual bus volts = ", bus_volts );
 
     # bus network (1. these must be called in the right order, 2. the
@@ -313,12 +323,19 @@ var electrical_bus_1 = func() {
     #    setprop("/systems/electrical/outputs/aircond", 0.0);
     #}
 
-    # Flaps
+    # Flaps 10 amp breaker
     if ( getprop("/controls/circuit-breakers/flaps") ) {
         setprop("/systems/electrical/outputs/flaps", bus_volts);
         load += bus_volts / 57;
     } else {
         setprop("/systems/electrical/outputs/flaps", 0.0);
+    }
+    current_flap_position = getprop("/surface-positions/flap-pos-norm");
+    if (current_flap_position != old_flap_position) {
+        old_flap_position = current_flap_position;
+        if (getprop("/systems/electrical/outputs/flaps") > 12) {
+            load += 4.5 * bus_volts; # 3.5-4.5
+        }
     }
 
     # Trim
@@ -330,8 +347,9 @@ var electrical_bus_1 = func() {
     }
 
     # Instrument Power: ignition, fuel, oil temperature
-    if ( getprop("/controls/circuit-breakers/master-instruments") ) {
-        setprop("/systems/electrical/outputs/instr-ignition-switch", bus_volts);
+    if ( getprop("/controls/circuit-breakers/master") and
+            getprop("/controls/switches/master-avionics") ) {
+        #setprop("/systems/electrical/outputs/instr-ignition-switch", bus_volts);
         if ( bus_volts > 12 ) {
             # starter
             if ( getprop("controls/circuit-breakers/starter-armed") ) {
@@ -353,9 +371,10 @@ var electrical_bus_1 = func() {
             load += bus_volts / 57;            
         } else {
             setprop("systems/electrical/outputs/starter", 0.0);
+            setprop("systems/electrical/outputs/fuel-pump", 0.0);
         }
     } else {
-        setprop("/systems/electrical/outputs/instr-ignition-switch", 0.0);
+        #setprop("/systems/electrical/outputs/instr-ignition-switch", 0.0);
         setprop("/systems/electrical/outputs/starter", 0.0);
         setprop("systems/electrical/outputs/fuel-pump", 0.0);
     }
@@ -414,13 +433,14 @@ var electrical_bus_1 = func() {
     #}
 
     # Turn Coordinator and Attitude Indicator
-    if ( getprop("/controls/circuit-breakers/master-instruments") ) {
-        setprop("/systems/electrical/outputs/TurnCoordinator", bus_volts);
-        setprop("/systems/electrical/outputs/AttitudeIndicator", bus_volts);
+    if ( getprop("/controls/circuit-breakers/master-instruments") and
+            getprop("/controls/switches/master-instruments") ) {
+        setprop("/systems/electrical/outputs/turn-coordinator", bus_volts);
+        setprop("/systems/electrical/outputs/attitude-indicator", bus_volts);
         load += bus_volts / 14;
     } else {
-        setprop("/systems/electrical/outputs/TurnCoordinator", 0.0);
-        setprop("/systems/electrical/outputs/AttitudeIndicator", 0.0);
+        setprop("/systems/electrical/outputs/turn-coordinator", 0.0);
+        setprop("/systems/electrical/outputs/attitude-indicator", 0.0);
     }
 
     # register bus voltage

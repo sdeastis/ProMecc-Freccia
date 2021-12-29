@@ -23,7 +23,7 @@
 		<name>asi</name>
 		<path>Interior/Instruments/asi300/asi300-3d.xml</path>
 		<offsets>
-			<x-m>-1.062</x-m>
+			<x-m>-1.070</x-m>
 			<y-m>-0.357</y-m>
 			<z-m> 0.238</z-m>
 			<!--pitch-deg>-7</pitch-deg-->
@@ -35,7 +35,7 @@
 		<name>ai</name>
 		<path>Interior/Instruments/ai/ai.xml</path>
 		<offsets>
-			<x-m>-1.062</x-m>
+			<x-m>-1.070</x-m>
 			<y-m>-0.253</y-m>
 			<z-m> 0.238</z-m>
 			<!--pitch-deg>-7</pitch-deg-->
@@ -44,9 +44,9 @@
 
 	<model>
 		<name>alt</name>
-		<path>Interior/Instruments/alt-2/alt2-3d.xml</path>
+		<path>Interior/Instruments/alt/alt.xml</path>
 		<offsets>
-			<x-m>-1.062</x-m>
+			<x-m>-1.070</x-m>
 			<y-m>-0.149</y-m>
 			<z-m> 0.238</z-m>
 			<!--pitch-deg>-7</pitch-deg-->
@@ -57,7 +57,7 @@
 		<name>vsi</name>
 		<path>Interior/Instruments/vsi/vsi.xml</path>
 		<offsets>
-			<x-m>-1.060</x-m>
+			<x-m>-1.070</x-m>
 			<y-m>-0.149</y-m>
 			<z-m> 0.133</z-m>
 			<!--pitch-deg>-7</pitch-deg-->
@@ -68,12 +68,347 @@
 		<name>tc</name>
 		<path>Interior/Instruments/tc/tc.xml</path>
 		<offsets>
-			<x-m>-1.058</x-m>
-			<y-m>-0.252</y-m>
+			<x-m>-1.070</x-m>
+			<y-m>-0.253</y-m>
 			<z-m> 0.135</z-m>
 			<!--pitch-deg>-7</pitch-deg-->
 		</offsets>
 	</model>
+
+	<model>
+		<name>rpm</name>
+		<path>Interior/Instruments/rpm/rpm.xml</path>
+		<offsets>
+			<x-m>-1.067</x-m>
+			<y-m> 0.141</y-m>
+			<z-m> 0.252</z-m>
+			<!--pitch-deg>-7</pitch-deg-->
+		</offsets>
+	</model>
+
+    <!-- ============================================================== -->
+    <!-- Battery Switch                                                 -->
+    <!-- ============================================================== -->
+	<animation>
+		<type>pick</type>
+		<object-name>BatteryB</object-name>
+		<object-name>BatterySw</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/switches/master-bat</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		   <hovered>
+				<binding>
+					<command>set-tooltip</command>
+					<tooltip-id>Battery-switch</tooltip-id>
+					<label>Battery: %s</label>
+					<property>controls/switches/master-bat</property>
+					<mapping>nasal</mapping>
+					<script>
+						var m = getprop('controls/switches/master-bat');
+						if (m == 0) return 'OFF';
+						if (m == 1) return 'ON';
+						return 'OFF';
+					</script>
+				</binding>
+			</hovered>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>BatterySw</object-name>
+		<property>controls/switches/master-bat</property>
+		<factor>-30</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-1.055</x-m>
+			<z-m>0.1</z-m>
+		</center>
+	</animation>
+
+    <!-- ============================================================== -->
+    <!-- Fuel Pump Switch                                               -->
+    <!-- ============================================================== -->
+	<animation>
+		<type>pick</type>
+		<object-name>FuelPumpB</object-name>
+		<object-name>FuelPumpSw</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/switches/fuel-pump</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		   <hovered>
+				<binding>
+					<command>set-tooltip</command>
+					<tooltip-id>FuelPump-switch</tooltip-id>
+					<label>Fuel Pump: %s</label>
+					<property>controls/switches/fuel-pump</property>
+					<mapping>nasal</mapping>
+					<script>
+						var m = getprop('controls/switches/fuel-pump');
+						if (m == 0) return 'OFF';
+						if (m == 1) return 'ON';
+						return 'OFF';
+					</script>
+				</binding>
+			</hovered>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>FuelPumpSw</object-name>
+		<property>controls/switches/fuel-pump</property>
+		<factor>-30</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-1.055</x-m>
+			<z-m>0.1</z-m>
+		</center>
+	</animation>
+
+    <!-- ============================================================== -->
+    <!-- AUX Fuel Pump Switch                                           -->
+    <!-- ============================================================== -->
+	<animation>
+		<type>pick</type>
+		<object-name>AUXFuelPumpB</object-name>
+		<object-name>AUXFuelPumpSw</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/switches/aux-fuel-pump</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		   <hovered>
+				<binding>
+					<command>set-tooltip</command>
+					<tooltip-id>AUXFuelPump-switch</tooltip-id>
+					<label>AUX Fuel Pump: %s</label>
+					<property>controls/switches/fuel-pump</property>
+					<mapping>nasal</mapping>
+					<script>
+						var m = getprop('controls/switches/aux-fuel-pump');
+						if (m == 0) return 'OFF';
+						if (m == 1) return 'ON';
+						return 'OFF';
+					</script>
+				</binding>
+			</hovered>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AUXFuelPumpSw</object-name>
+		<property>controls/switches/aux-fuel-pump</property>
+		<factor>-30</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-1.055</x-m>
+			<z-m>0.1</z-m>
+		</center>
+	</animation>
+
+    <!-- ============================================================== -->
+    <!-- Avionics Switch                                                -->
+    <!-- ============================================================== -->
+	<animation>
+		<type>pick</type>
+		<object-name>AvionicsB</object-name>
+		<object-name>AvionicsSw</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/switches/master-avionics</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		   <hovered>
+				<binding>
+					<command>set-tooltip</command>
+					<tooltip-id>Avionics-switch</tooltip-id>
+					<label>Avionics: %s</label>
+					<property>controls/switches/master-avionics</property>
+					<mapping>nasal</mapping>
+					<script>
+						var m = getprop('controls/switches/master-avionics');
+						if (m == 0) return 'OFF';
+						if (m == 1) return 'ON';
+						return 'OFF';
+					</script>
+				</binding>
+			</hovered>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AvionicsSw</object-name>
+		<property>controls/switches/master-avionics</property>
+		<factor>-30</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-1.055</x-m>
+			<z-m>0.1</z-m>
+		</center>
+	</animation>
+
+    <!-- ============================================================== -->
+    <!-- Instruments Switch                                             -->
+    <!-- ============================================================== -->
+	<animation>
+		<type>pick</type>
+		<object-name>InstrumentsB</object-name>
+		<object-name>InstrumentsSw</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/switches/master-instruments</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		   <hovered>
+				<binding>
+					<command>set-tooltip</command>
+					<tooltip-id>Instruments-switch</tooltip-id>
+					<label>Instruments: %s</label>
+					<property>controls/switches/master-instruments</property>
+					<mapping>nasal</mapping>
+					<script>
+						var m = getprop('controls/switches/master-instruments');
+						if (m == 0) return 'OFF';
+						if (m == 1) return 'ON';
+						return 'OFF';
+					</script>
+				</binding>
+			</hovered>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>InstrumentsSw</object-name>
+		<property>controls/switches/master-instruments</property>
+		<factor>-30</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-1.055</x-m>
+			<z-m>0.1</z-m>
+		</center>
+	</animation>
+
+    <!-- ============================================================== -->
+    <!-- Trim Switch                                                    -->
+    <!-- ============================================================== -->
+	<animation>
+		<type>pick</type>
+		<object-name>TrimB</object-name>
+		<object-name>TrimSw</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/switches/trim</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		   <hovered>
+				<binding>
+					<command>set-tooltip</command>
+					<tooltip-id>Trim-switch</tooltip-id>
+					<label>Trim: %s</label>
+					<property>controls/switches/trim</property>
+					<mapping>nasal</mapping>
+					<script>
+						var m = getprop('controls/switches/trim');
+						if (m == 0) return 'OFF';
+						if (m == 1) return 'ON';
+						return 'OFF';
+					</script>
+				</binding>
+			</hovered>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>TrimSw</object-name>
+		<property>controls/switches/trim</property>
+		<factor>-30</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-1.055</x-m>
+			<z-m>0.1</z-m>
+		</center>
+	</animation>
 
     <model>
         <name>fg10001</name>
