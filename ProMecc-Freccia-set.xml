@@ -102,7 +102,7 @@
 			<name>Pilot View</name>
 			<internal archive="y">true</internal>
 			<config>
-				<x-offset-m archive="y">-0.28</x-offset-m>
+				<x-offset-m archive="y">0.28</x-offset-m>
 				<y-offset-m archive="y">0.42</y-offset-m>
 				<z-offset-m archive="y">-0.29</z-offset-m>
 				<pitch-offset-deg>-10</pitch-offset-deg>

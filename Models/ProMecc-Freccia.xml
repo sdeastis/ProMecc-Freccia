@@ -35,7 +35,7 @@
 		<name>ai</name>
 		<path>Interior/Instruments/ai/ai.xml</path>
 		<offsets>
-			<x-m>-1.070</x-m>
+			<x-m>-1.067</x-m>
 			<y-m>-0.253</y-m>
 			<z-m> 0.238</z-m>
 			<!--pitch-deg>-7</pitch-deg-->
@@ -57,7 +57,7 @@
 		<name>vsi</name>
 		<path>Interior/Instruments/vsi/vsi.xml</path>
 		<offsets>
-			<x-m>-1.070</x-m>
+			<x-m>-1.066</x-m>
 			<y-m>-0.149</y-m>
 			<z-m> 0.133</z-m>
 			<!--pitch-deg>-7</pitch-deg-->
@@ -79,8 +79,52 @@
 		<name>rpm</name>
 		<path>Interior/Instruments/rpm/rpm.xml</path>
 		<offsets>
-			<x-m>-1.067</x-m>
+			<x-m>-1.066</x-m>
 			<y-m> 0.141</y-m>
+			<z-m> 0.252</z-m>
+			<!--pitch-deg>-7</pitch-deg-->
+		</offsets>
+	</model>
+
+	<model>
+		<name>BatteryAmperes</name>
+		<path>Interior/Instruments/BatteryGauge/BatteryGauge.xml</path>
+		<offsets>
+			<x-m>-1.076</x-m>
+			<y-m> 0.431</y-m>
+			<z-m> 0.180</z-m>
+			<!--pitch-deg>-7</pitch-deg-->
+		</offsets>
+	</model>
+
+	<model>
+		<name>OilPress</name>
+		<path>Interior/Instruments/oil-pressure/oil-pressure.xml</path>
+		<offsets>
+			<x-m>-1.076</x-m>
+			<y-m> 0.359</y-m>
+			<z-m> 0.178</z-m>
+			<!--pitch-deg>-7</pitch-deg-->
+		</offsets>
+	</model>
+
+	<model>
+		<name>OilTemp</name>
+		<path>Interior/Instruments/oil-temperature/oil-temperature.xml</path>
+		<offsets>
+			<x-m>-1.076</x-m>
+			<y-m> 0.285</y-m>
+			<z-m> 0.178</z-m>
+			<!--pitch-deg>-7</pitch-deg-->
+		</offsets>
+	</model>
+
+	<model>
+		<name>EGT</name>
+		<path>Interior/Instruments/egt/egt.xml</path>
+		<offsets>
+			<x-m>-1.070</x-m>
+			<y-m> 0.376</y-m>
 			<z-m> 0.252</z-m>
 			<!--pitch-deg>-7</pitch-deg-->
 		</offsets>

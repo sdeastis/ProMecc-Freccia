@@ -222,11 +222,8 @@
     </filter>
 
     <filter>
-        <name>Engine Oil Temperature</name>
+        <name>Engine Oil Temperature Fahrenheit</name>
         <type>gain</type>
-        <gain>
-            <property>/engines/active-engine/low-oil-temperature-factor</property>
-        </gain>
         <input>
             <condition>
                 <equals>
@@ -251,11 +248,8 @@
     </filter>
 
     <filter>
-        <name>Engine Oil Pressure</name>
+        <name>Engine Oil Pressure PSI</name>
         <type>gain</type>
-        <gain>
-            <property>/engines/active-engine/low-oil-pressure-factor</property>
-        </gain>
         <input>
             <condition>
                 <equals>
@@ -270,6 +264,30 @@
         </input>
         <output>
             <property>/engines/active-engine/oil-pressure-psi</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine Oil Pressure BAR</name>
+        <type>gain</type>
+        <gain>0.0689476</gain>
+        <input>
+            <property>/engines/active-engine/oil-pressure-psi</property>
+        </input>
+        <output>
+            <property>/engines/active-engine/oil-pressure-bar</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine Oil Temperature Celsius</name>
+        <type>gain</type>
+        <gain>0.5555555555555556</gain>
+        <input>
+            <property>/engines/active-engine/oil-temperature-degf</property>
+        </input>
+        <output>
+            <property>/engines/active-engine/oil-temperature-degc</property>
         </output>
     </filter>
 
