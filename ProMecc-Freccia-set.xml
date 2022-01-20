@@ -45,9 +45,9 @@
         <minimum-fg-version>2018.2.0</minimum-fg-version>
 		<rating>
             <FDM type="int">1</FDM>
-            <systems type="int">0</systems>
+            <systems type="int">1</systems>
             <model type="int">1</model>
-            <cockpit type="int">0</cockpit>
+            <cockpit type="int">1</cockpit>
         </rating>
 		
 		<flight-model>jsb</flight-model>
@@ -55,7 +55,7 @@
 		<aero>ProMecc-Freccia</aero>
 		
 		<model>
-			<path type="string">Aircraft/ProMecc-Freccia/Models/ProMecc-Freccia.xml</path>
+			<path type="string">Models/ProMecc-Freccia.xml</path>
 			<ProMecc-Freccia>
                 <fg1000 type="bool">false</fg1000>
                 <fg1000-available type="bool">false</fg1000-available>
@@ -72,30 +72,30 @@
             </preview>
         </previews>
         <startup>
-            <splash-texture>Aircraft/ProMecc-Freccia/Previews/ProMecc-Freccia_preview0.jpg</splash-texture>
+            <splash-texture>Previews/ProMecc-Freccia_preview0.jpg</splash-texture>
             <season-winter type="bool">false</season-winter>
         </startup>
 		
 		<systems>
-			<path>Aircraft/ProMecc-Freccia/Systems/ProMecc-Freccia-systems.xml</path>
+			<path>Systems/ProMecc-Freccia-systems.xml</path>
 
             <property-rule n="100">
                 <name>FiltersOnly</name>
-                <path>Aircraft/ProMecc-Freccia/Systems/ProMecc-Freccia-instruments.xml</path>
+                <path>Systems/ProMecc-Freccia-instruments.xml</path>
             </property-rule>
             
 			<property-rule n="103">
-                <path>Aircraft/ProMecc-Freccia/Systems/ProMecc-Freccia-engine.xml</path>
+                <path>Systems/ProMecc-Freccia-engine.xml</path>
             </property-rule>
             
 			<property-rule n="108">
-                <path>Aircraft/ProMecc-Freccia/Systems/ProMecc-Freccia-electrical.xml</path>
+                <path>Systems/ProMecc-Freccia-electrical.xml</path>
             </property-rule>
 
 		</systems>
 		
 		<sound>
-			<path archive="y">Aircraft/ProMecc-Freccia/Sounds/sound.xml</path>
+			<path archive="y">Sounds/sound.xml</path>
 		</sound>
 		
 		<view n="0">
@@ -115,35 +115,35 @@
 		</instrumentation>
 	</sim>
 
-		<controls>
-			<engines n="0">
-            	<active-engine type="int">0</active-engine>
-			</engines>
+	<controls>
+		<engines n="0">
+            <active-engine type="int">0</active-engine>
+		</engines>
 
-        	<circuit-breakers>
-				<master type="bool">true</master>
-            	<starter-armed type="bool">true</starter-armed>
-				<fuel-pump type="bool">true</fuel-pump>
-				<master-avionics type="bool">true</master-avionics>
-				<master-instruments type="bool">true</master-instruments>
-				<trim type="bool">true</trim>
-            	<flaps type="bool">true</flaps>
-				<extlt type="bool">true</extlt>  
-        	</circuit-breakers>
+    	<circuit-breakers>
+			<master type="bool">true</master>
+        	<starter-armed type="bool">true</starter-armed>
+			<fuel-pump type="bool">true</fuel-pump>
+			<master-avionics type="bool">true</master-avionics>
+			<master-instruments type="bool">true</master-instruments>
+			<trim type="bool">true</trim>
+            <flaps type="bool">true</flaps>
+			<extlt type="bool">true</extlt>  
+        </circuit-breakers>
 
-        	<switches>
-				<master type="bool">false</master>
-            	<master-avionics type="bool">true</master-avionics>
-				<master-instruments type="bool">true</master-instruments>
-            	<master-alt type="bool">true</master-alt>
-            	<master-bat type="bool">true</master-bat>
-				<magnetos type="int">0</magnetos>
-				<starter type="bool">false</starter>
-				<fuel-pump type="bool">false</fuel-pump>
-				<aux-fuel-pump type="bool">false</aux-fuel-pump>
-				<trim type="bool">true</trim>
-        	</switches>
-		</controls>
+        <switches>
+			<master type="bool">false</master>
+           	<master-avionics type="bool">true</master-avionics>
+			<master-instruments type="bool">true</master-instruments>
+           	<master-alt type="bool">true</master-alt>
+           	<master-bat type="bool">true</master-bat>
+			<magnetos type="int">0</magnetos>
+			<starter type="bool">false</starter>
+			<fuel-pump type="bool">false</fuel-pump>
+			<aux-fuel-pump type="bool">false</aux-fuel-pump>
+			<trim type="bool">true</trim>
+        </switches>
+	</controls>
 
     
 	<nasal>
@@ -151,7 +151,7 @@
             <file>Aircraft/Generic/updateloop.nas</file>
         </updateloop>
         <electrical>
-            <file>Aircraft/ProMecc-Freccia/Nasal/ProMecc-Freccia-electrical.nas</file>
+            <file>Nasal/ProMecc-Freccia-electrical.nas</file>
         </electrical>
     </nasal>
 

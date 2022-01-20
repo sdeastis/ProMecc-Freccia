@@ -325,7 +325,7 @@
    <!-- This is provided so that you can write an autopilot 
         model for your aircraft, based on a generic autopilot      -->
 
-    <autopilot file="systems/autopilot"/>
+    <autopilot file="Systems/autopilot.xml"/>
 	
 <!-- **********************************************************************
         FLIGHT CONTROLS
