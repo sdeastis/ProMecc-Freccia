@@ -37,7 +37,17 @@
 				bulloni di classe 8.8 (ISO R80) e 10.9 (ISO R100). 
 			</long-description>
         </it>
-		
+
+        <tags>
+            <tag n="0">ga</tag>
+            <tag n="1">ProMecc</tag>
+            <tag n="2">piston</tag>
+            <tag n="3">single-engine</tag>
+            <tag n="4">fixed-gear</tag>
+			<tag n="5">vfr</tag>
+			<tag n="6">stol</tag>
+        </tags>
+
 		<author>Original by SDeAstis (Salvatore De Astis )</author>
 		
 		<status>Early developement</status>
