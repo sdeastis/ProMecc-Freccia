@@ -27,11 +27,10 @@
 		<z-offset>0.8</z-offset>
 	</animation>
   
-  <!-- working for Compositor -->
-  <!--effect>
-    <inherits-from>../../../../Effects/Glass/glass</inherits-from>
+  <effect>
+    <inherits-from>Effects/glass</inherits-from>
     <object-name>vitre</object-name>
-  </effect-->
+  </effect>
 
   <animation>
     <type>material</type>

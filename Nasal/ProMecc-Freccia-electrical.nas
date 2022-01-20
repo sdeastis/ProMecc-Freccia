@@ -349,7 +349,7 @@ var electrical_bus_1 = func() {
     # Instrument Power: ignition, fuel, oil temperature
     if ( getprop("/controls/circuit-breakers/master") and
             getprop("/controls/switches/master-avionics") ) {
-        #setprop("/systems/electrical/outputs/instr-ignition-switch", bus_volts);
+        setprop("/systems/electrical/outputs/instr-ignition-switch", bus_volts);
         if ( bus_volts > 12 ) {
             # starter
             if ( getprop("controls/circuit-breakers/starter-armed") ) {

@@ -18,6 +18,9 @@
 		<object-name>Needle</object-name>
 		<object-name>Bug</object-name>
 		<object-name>Face</object-name>
+    	<condition>
+      		<property>controls/switches/master-bat</property>
+    	</condition>
 		<emission>
 			<red>0.6</red>
 			<green>0.6</green>

@@ -2,13 +2,18 @@
 
 <PropertyList>
 
-    <path>ProMecc-Freccia_1.0.0.ac</path>
+    <path>ProMecc-Freccia.ac</path>
 
     <!--offsets>
         <pitch-deg>-3.0</pitch-deg>
         <z-m>-0.065</z-m>
     </offsets-->
-	
+
+  <effect>
+    <inherits-from>Effects/glass</inherits-from>
+    <object-name>Canopy</object-name>
+  </effect>
+
 	<model>
 		<name>mags</name>
 		<path>Interior/Instruments/magneto-switch/mags.xml</path>
@@ -101,9 +106,9 @@
 		<name>OilPress</name>
 		<path>Interior/Instruments/oil-pressure/oil-pressure.xml</path>
 		<offsets>
-			<x-m>-1.076</x-m>
+			<x-m>-1.066</x-m>
 			<y-m> 0.359</y-m>
-			<z-m> 0.178</z-m>
+			<z-m> 0.180</z-m>
 			<!--pitch-deg>-7</pitch-deg-->
 		</offsets>
 	</model>
@@ -112,9 +117,9 @@
 		<name>OilTemp</name>
 		<path>Interior/Instruments/oil-temperature/oil-temperature.xml</path>
 		<offsets>
-			<x-m>-1.076</x-m>
+			<x-m>-1.066</x-m>
 			<y-m> 0.285</y-m>
-			<z-m> 0.178</z-m>
+			<z-m> 0.180</z-m>
 			<!--pitch-deg>-7</pitch-deg-->
 		</offsets>
 	</model>
@@ -126,6 +131,50 @@
 			<x-m>-1.070</x-m>
 			<y-m> 0.376</y-m>
 			<z-m> 0.252</z-m>
+			<!--pitch-deg>-7</pitch-deg-->
+		</offsets>
+	</model>
+
+	<model>
+		<name>FuelLeft</name>
+		<path>Interior/Instruments/fuel-indicator-L/fuel-indicator-L.xml</path>
+		<offsets>
+			<x-m>-1.066</x-m>
+			<y-m> 0.219</y-m>
+			<z-m> 0.252</z-m>
+			<!--pitch-deg>-7</pitch-deg-->
+		</offsets>
+	</model>
+
+	<model>
+		<name>FuelRight</name>
+		<path>Interior/Instruments/fuel-indicator-R/fuel-indicator-R.xml</path>
+		<offsets>
+			<x-m>-1.066</x-m>
+			<y-m> 0.298</y-m>
+			<z-m> 0.252</z-m>
+			<!--pitch-deg>-7</pitch-deg-->
+		</offsets>
+	</model>
+
+	<model>
+		<name>FlapsInd</name>
+		<path>Interior/Instruments/flaps-indicator/flaps-indicator.xml</path>
+		<offsets>
+			<x-m>-1.066</x-m>
+			<y-m> 0.141</y-m>
+			<z-m> 0.180</z-m>
+			<!--pitch-deg>-7</pitch-deg-->
+		</offsets>
+	</model>
+
+	<model>
+		<name>CHT</name>
+		<path>Interior/Instruments/cht/cht.xml</path>
+		<offsets>
+			<x-m>-1.066</x-m>
+			<y-m> 0.213</y-m>
+			<z-m> 0.180</z-m>
 			<!--pitch-deg>-7</pitch-deg-->
 		</offsets>
 	</model>

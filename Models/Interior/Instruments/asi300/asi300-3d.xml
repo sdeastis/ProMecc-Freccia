@@ -18,6 +18,9 @@ Syd Adams
         <type>material</type>
         <object-name>ASIneedle</object-name>
         <object-name>ASIface</object-name>
+    	<condition>
+      		<property>controls/switches/master-bat</property>
+    	</condition>
         <emission>
  			<red>0.6</red>
 			<green>0.6</green>

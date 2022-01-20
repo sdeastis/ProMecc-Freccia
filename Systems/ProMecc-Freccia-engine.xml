@@ -222,6 +222,32 @@
     </filter>
 
     <filter>
+        <name>Cylenter Head TemperatureFahrenheit</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[0]/cht-degf</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[1]/cht-degf</property>
+        </input>
+        <output>
+            <property>/engines/active-engine/cht-temperature-degf</property>
+        </output>
+    </filter>
+    
+    <filter>
         <name>Engine Oil Temperature Fahrenheit</name>
         <type>gain</type>
         <input>
@@ -276,18 +302,6 @@
         </input>
         <output>
             <property>/engines/active-engine/oil-pressure-bar</property>
-        </output>
-    </filter>
-
-    <filter>
-        <name>Engine Oil Temperature Celsius</name>
-        <type>gain</type>
-        <gain>0.5555555555555556</gain>
-        <input>
-            <property>/engines/active-engine/oil-temperature-degf</property>
-        </input>
-        <output>
-            <property>/engines/active-engine/oil-temperature-degc</property>
         </output>
     </filter>
 

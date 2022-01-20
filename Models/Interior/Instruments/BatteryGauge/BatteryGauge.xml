@@ -15,6 +15,9 @@
 		<type>material</type>
 		<object-name>Face</object-name>
 		<object-name>PtrTip</object-name>
+    	<condition>
+      		<property>controls/switches/master-bat</property>
+    	</condition>
 		<emission>
 			<red>0.6</red>
 			<green>0.6</green>

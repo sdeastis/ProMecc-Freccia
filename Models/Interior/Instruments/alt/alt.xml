@@ -18,6 +18,9 @@
 		<object-name>Needle10000</object-name>
 		<object-name>Needle1000</object-name>
 		<object-name>Needle100</object-name>
+		<condition>
+      		<property>controls/switches/master-bat</property>
+    	</condition>
 		<emission>
 			<red>0.6</red>
 			<green>0.6</green>

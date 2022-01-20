@@ -102,7 +102,7 @@
 			<name>Pilot View</name>
 			<internal archive="y">true</internal>
 			<config>
-				<x-offset-m archive="y">0.28</x-offset-m>
+				<x-offset-m archive="y">-0.28</x-offset-m>
 				<y-offset-m archive="y">0.42</y-offset-m>
 				<z-offset-m archive="y">-0.29</z-offset-m>
 				<pitch-offset-deg>-10</pitch-offset-deg>
@@ -133,10 +133,10 @@
 
         	<switches>
 				<master type="bool">false</master>
-            	<master-avionics type="bool">false</master-avionics>
-				<master-instruments type="bool">false</master-instruments>
+            	<master-avionics type="bool">true</master-avionics>
+				<master-instruments type="bool">true</master-instruments>
             	<master-alt type="bool">true</master-alt>
-            	<master-bat type="bool">false</master-bat>
+            	<master-bat type="bool">true</master-bat>
 				<magnetos type="int">0</magnetos>
 				<starter type="bool">false</starter>
 				<fuel-pump type="bool">false</fuel-pump>

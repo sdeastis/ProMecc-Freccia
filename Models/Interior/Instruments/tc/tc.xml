@@ -17,6 +17,9 @@
 		<object-name>Face</object-name>
 		<object-name>Airplane</object-name>
 		<object-name>Background</object-name>
+    	<condition>
+      		<property>controls/switches/master-bat</property>
+    	</condition>
 		<emission>
 			<red>0.6</red>
 			<green>0.6</green>

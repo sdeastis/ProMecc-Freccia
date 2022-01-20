@@ -20,6 +20,9 @@
 		<object-name>flag</object-name>
 		<object-name>ac</object-name>
 		<object-name>bg</object-name>
+    	<condition>
+      		<property>controls/switches/master-bat</property>
+    	</condition>
 		<emission>
 			<red>0.6</red>
 			<green>0.6</green>
