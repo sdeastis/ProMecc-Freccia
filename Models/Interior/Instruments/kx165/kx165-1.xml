@@ -170,7 +170,7 @@
         <property alias="../../../../params/comm-serviceable"/>
         <property alias="../../../../params/power-comm"/>
         <greater-than>
-          <property>systems/electrical/outputs/comm[0]</property>
+          <property>systems/electrical/outputs/comm-nav[0]</property>
           <value>6.0</value>
         </greater-than>
       </and>
@@ -186,7 +186,7 @@
         <property alias="../../../../params/nav-serviceable"/>
         <property alias="../../../../params/power-comm"/>
         <greater-than>
-          <property>systems/electrical/outputs/comm[0]</property>
+          <property>systems/electrical/outputs/comm-nav[0]</property>
           <value>6.0</value>
         </greater-than>
       </and>

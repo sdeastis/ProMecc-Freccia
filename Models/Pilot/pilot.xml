@@ -56,7 +56,7 @@
 			<lower-animation>
 				<property type="string"></property>
 				<factor type="float">0</factor>
-				<offset-deg type="float">-50</offset-deg>
+				<offset-deg type="float">-45</offset-deg>
 				<min type="float">-90</min>
 				<max type="float">0</max>
 			</lower-animation>
