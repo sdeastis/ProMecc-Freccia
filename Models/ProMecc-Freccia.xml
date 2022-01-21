@@ -179,6 +179,16 @@
 		</offsets>
 	</model>
 
+	<model>
+		<name>radio-kx165-traditional-1</name>
+		<path>Interior/Instruments/kx165/kx165-1.xml</path>
+		<offsets>
+			<x-m>-1.066</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.105</z-m>
+		</offsets>
+	</model>
+
     <!-- ============================================================== -->
     <!-- Battery Switch                                                 -->
     <!-- ============================================================== -->
@@ -503,83 +513,27 @@
 		</center>
 	</animation>
 
+    <!-- ============================================================== -->
+    <!-- Trim Switch                                                    -->
+    <!-- ============================================================== -->
     <model>
-        <name>fg10001</name>
-        <path>Aircraft/Instruments-3d/FG1000/GDU104X/GDU-1040.1.xml</path>
-        <condition>
-			<property>sim/model/ProMecc-Freccia/fg1000</property>
-        </condition>
+        <name>Pilot</name>
+        <path>/Pilot/pilot.xml</path>
         <offsets>
-            <x-m>-1.05</x-m>
-            <y-m>-0.23</y-m>
-            <z-m>0.16</z-m>
+            <x-m>-0.700 </x-m>
+            <y-m>-0.270 </y-m>
+            <z-m>-0.150 </z-m>
         </offsets>
-    </model>
-	 
-    <model>
-        <name>fg10002</name>
-        <path>Aircraft/Instruments-3d/FG1000/GDU104X/GDU-1040.2.xml</path>
-        <condition>
-			<property>sim/model/ProMecc-Freccia/fg1000</property>
-        </condition>
-        <offsets>
-            <x-m>-1.05</x-m>
-            <y-m>0.23</y-m>
-            <z-m>0.16</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name>altimeter</name>
-        <path>Aircraft\Instruments-3d\alt\alt.xml</path>
-		<condition>
-			<property>sim/model/ProMecc-Freccia/glass-cockpit</property>
-        </condition>
-        <offsets>
-            <x-m>-1.05</x-m>
-            <y-m>-0.04</y-m>
-            <z-m>0.2</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name>vsi</name>
-        <path>Aircraft\Instruments-3d\vsi\vsi.xml</path>
-		<condition>
-			<property>sim/model/ProMecc-Freccia/glass-cockpit</property>
-        </condition>
-        <offsets>
-            <x-m>-1.05</x-m>
-            <y-m>-0.04</y-m>
-            <z-m>0.12</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name>compass</name>
-        <path>Aircraft\Instruments-3d\mag-compass.xml</path>
-		<condition>
-			<property>sim/model/ProMecc-Freccia/glass-cockpit</property>
-        </condition>
-        <offsets>
-            <x-m>-1.05</x-m>
-            <y-m>0.04</y-m>
-            <z-m>0.2</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name>asi</name>
-        <path>Aircraft\Instruments-3d\asi\asi.xml</path>
-		<condition>
-			<property>sim/model/ProMecc-Freccia/glass-cockpit</property>
-        </condition>
-        <offsets>
-            <x-m>-1.05</x-m>
-            <y-m>0.04</y-m>
-            <z-m>0.12</z-m>
-        </offsets>
-    </model>
+        <overlay>
+            <animation n="100">
+                <type>scale</type>
+                <property>constants/zero</property>
+                <x-offset>1.00</x-offset>
+                <y-offset>1.00</y-offset>
+                <z-offset>1.00</z-offset>
+            </animation>
+        </overlay>
+  </model>
 
 	<animation>
 	 <type>spin</type>

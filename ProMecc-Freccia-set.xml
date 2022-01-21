@@ -40,12 +40,17 @@
 
         <tags>
             <tag n="0">ga</tag>
-            <tag n="1">ProMecc</tag>
-            <tag n="2">piston</tag>
-            <tag n="3">single-engine</tag>
-            <tag n="4">fixed-gear</tag>
-			<tag n="5">vfr</tag>
-			<tag n="6">stol</tag>
+			<tag n="1">ultralight</tag>
+			<tag n="2">transport</tag>
+            <tag n="3">promecc</tag>
+            <tag n="4">piston</tag>
+            <tag n="5">single-engine</tag>
+			<tag n="6">propeller</tag>
+            <tag n="7">fixed-gear</tag>
+			<tag n="8">low-wing</tag>
+			<tag n="9">vfr</tag>
+			<tag n="10">stol</tag>
+
         </tags>
 
 		<author>Original by SDeAstis (Salvatore De Astis )</author>
