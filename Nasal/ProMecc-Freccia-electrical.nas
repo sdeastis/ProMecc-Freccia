@@ -474,9 +474,8 @@ var avionics_bus_1 = func() {
 
     # Com and Nav 1 Power
     if (getprop("/controls/circuit-breakers/master-avionics") and getprop("/controls/switches/master-avionics")) {
-      setprop("/systems/electrical/outputs/comm-nav[0]", bus_volts);
+      setprop("/systems/electrical/outputs/comm[0]", bus_volts);
       #setprop("/systems/electrical/outputs/nav[0]", bus_volts);
-      #setprop("systems/electrical/outputs/comm[0]", bus_volts);
       #load += 5 * bus_volts;
       #radio_lighting_load = 1.0;
     } else {

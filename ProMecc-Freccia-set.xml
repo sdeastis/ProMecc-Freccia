@@ -126,7 +126,7 @@
 		</view>
 
 		<instrumentation>
-			<path>Systems/ProMecc-Freccia-instrumentation.xml</path>
+			<path>Systems/instrumentation.xml</path>
 		</instrumentation>
 	</sim>
 
@@ -187,4 +187,9 @@
         <keyboard include="ProMecc-Freccia-keyboard.xml"/>
     </input>
 
+	<instrumentation>
+		<transponder n="0">
+			<serviceable type="bool">false</serviceable>
+		</transponder>
+	</instrumentation>
 </PropertyList>
