@@ -168,9 +168,6 @@
         <electrical>
             <file>Nasal/ProMecc-Freccia-electrical.nas</file>
         </electrical>
-		<libraries>
-			<file>Nasal/kx165a.nas</file>
-		</libraries>
     </nasal>
 
     <systems>
