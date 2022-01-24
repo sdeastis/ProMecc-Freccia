@@ -188,5 +188,8 @@
 		<transponder n="0">
 			<serviceable type="bool">false</serviceable>
 		</transponder>
+		<comm n="1">
+			<serviceable type="bool">false</serviceable>
+		</comm>
 	</instrumentation>
 </PropertyList>
