@@ -14,6 +14,36 @@
     <object-name>Canopy</object-name>
   </effect>
 
+	<animation>
+		<type>rotate</type>
+		<object-name>LeftAileron</object-name>
+		<property>fdm/jsbsim/fcs/left-aileron-pos-deg</property>
+		<factor>-1</factor>
+		<axis>
+			<x1-m>-0.25121</x1-m>
+			<y1-m>-2.70551</y1-m>
+			<z1-m>-0.18359</z1-m>
+			<x2-m>-0.34268</x2-m>
+			<y2-m>-4.97839</y2-m>
+			<z2-m>0.08607</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>RightAileron</object-name>
+		<property>fdm/jsbsim/fcs/right-aileron-pos-deg</property>
+		<factor>1</factor>
+		<axis>
+			<x1-m>-0.25121</x1-m>
+			<y1-m>2.70551</y1-m>
+			<z1-m>-0.18359</z1-m>
+			<x2-m>-0.34268</x2-m>
+			<y2-m>4.97839</y2-m>
+			<z2-m>0.08607</z2-m>
+		</axis>
+	</animation>
+
 	<model>
 		<name>mags</name>
 		<path>Interior/Instruments/magneto-switch/mags.xml</path>
