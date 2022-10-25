@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 
 <!--
-  File:     ROTAX912ULS.xml
-  Author:   Salvatore De Astis (SDeAstis)
+  File:		ROTAX912ULS.xml
+  Authors:	Salvatore De Astis (SDeAstis)
+			Boomer
 
   See: http://wiki.flightgear.org/JSBSim_Engines#FGPiston
 
@@ -13,21 +14,84 @@
 -->
 
 <piston_engine name="ROTAX912ULS">
-  <minmp unit="INHG">			18.0	</minmp>				<!--SHOULD BE OK-->
-  <maxmp unit="INHG">			28.0	</maxmp>				<!--OK-->
-  <displacement unit="IN3">		82.6	</displacement>			<!--OK-->
-  <maxhp>					   100.0	</maxhp>				<!--OK-->
-  <cycles>						 4.0	</cycles>				<!--OK-->
-  <idlerpm>					  1400.0	</idlerpm>				<!--OK-->
-  <maxrpm>					  5800.0	</maxrpm>				<!--OK-->
-  <sparkfaildrop>				 0.1	</sparkfaildrop>		<!--UNKNOWN???-->
-  <volumetric-efficiency>		 0.85	</volumetric-efficiency><!--UNKNOWN???-->
-  <man-press-lag>				 0.1	</man-press-lag>		<!--UNKNOWN???-->
-  <static-friction  unit="HP">	 0.493	</static-friction>		<!--UNKNOWN???-->
-  <starter-torque>				78.8508	</starter-torque>		<!--UNKNOWN???-->
-  <starter-rpm>				  1400		</starter-rpm>			<!--UNKNOWN???-->
-  <stroke unit="IN">			 2.40	</stroke>				<!--OK-->
-  <bore unit="IN">				 3.13	</bore>					<!--OK-->
-  <cylinders>					 4		</cylinders>			<!--OK-->
-  <compression-ratio>			10.8	</compression-ratio>	<!--OK-->
-</piston_engine>
+  <displacement unit="IN3">		82.6	</displacement>			<!-- this value is used to determine mass air and fuel flow which 
+																impacts engine power and cooling. -->
+																
+  <bore unit="IN">				 3.31	</bore>					<!-- cylinder bore is currently unused. -->
+
+  <stroke unit="IN">			 2.40	</stroke>				<!-- piston stroke is used to determine the mean piston speed. 
+																A longer stroke results in an engine that does not work as well at higher speeds -->
+
+  <cylinders>					 4		</cylinders>			<!-- number of cylinders scales the cylinder head mass. -->
+
+  <compression-ratio>			10.8	</compression-ratio>	<!-- the compression ratio affects the change in volumetric efficiency with altitude.-->
+
+  <maxhp>					   100.0	</maxhp>				<!-- this value is the nominal power the engine creates at maxrpm.
+																It will determine bsfc if that tag is not input. It also determines 
+																the starter motor power. --> 
+
+  <cycles>						 4.0	</cycles>				<!-- Designate a 2 or 4 stroke engine. 
+																Currently only the 4 stroke engine is supported. -->
+
+  <idlerpm>					  1400.0	</idlerpm>				<!-- this value affects the throttle fall off.
+																The engine stops running when its RPM's are less than 80% of this value.
+																The engine starts running when its RPM's are greater than 80% of this value. -->
+																
+  <maxrpm>					  5800.0	</maxrpm>				<!-- this value is used to calculate air-box resistance and BSFC.
+																It also affects oil pressure among other things. -->
+																
+
+																
+  <static-friction  unit="HP">	 0.493	</static-friction>		
+  <starter-torque>				58.8508	</starter-torque>		
+  <starter-rpm>				  1400.0	</starter-rpm>																	
+
+		<!-- AIR INTAKE -->			
+  <man-press-lag>				 0.05	</man-press-lag>		<!-- Basically sets how fast the engine will accelerate. It has to be found by tuning, 
+																and you'd need a video including a view of the throttle and tachometer / MP gauge 
+																to make this realistic unless reported in POH/FlightManual-->
+
+  <ram-air-factor> 				 3.0	</ram-air-factor>		<!-- this value creates additional manifold pressure linked to qbar (aircraft speed). 
+																0 turns ram air off, all other values are multiplication of qbar simulating venturi 
+																effect of the air scoop -->
+
+ <air-intake-impedance-factor>	 0.115 	</air-intake-impedance-factor> <!-- 0.05 , zero for boosted engines -->
+																<!-- this number is the pressure drop across the intake system cause by the inlet air filter -->
+
+		<!-- THROTTLE -->																	
+
+  <maxmp unit="INHG">			35.0	</maxmp>				<!-- this value is the nominal maximum manifold pressure at sea-level 
+																without boost. Along with maxrpm it determines the resistance of the 
+																aircraft's intake system. See air-intake-impedance-factor  -->
+
+  <minmp unit="INHG">			 7.2	</minmp>				<!-- this value is the nominal idle manifold pressure at sea-level 
+																without boost. It is determined by reducing the throttle and 
+																recording the Manifold pressure when the engine RPM is at the 
+																required idle speed -->
+															
+		<!-- POWER PRODUCTION -->		
+		
+  <sparkfaildrop>				 0.1	</sparkfaildrop>		<!-- this is the percentage drop in horsepower for single magneto operation, 
+																try a value of 0.8 or so. If you have the drop amount in the POH/FlightManula
+																of the aircraft, turn off one magneto and adjust this value at runtime to match it. -->
+																
+  <volumetric-efficiency>		 0.7504	</volumetric-efficiency><!-- Controls how efficient the intake/outlet system is in allowing 
+																mixture to pass through the engine. Adjust this value to give correct 
+																fuel consumption at a known rpm and manifold pressure. This value is 
+																exposed on the property tree so it may be altered at runtime -->
+																
+  <!-- Defining <bsfc> over-rides the built-in horsepower calculations -->
+  <bsfc>           				 0.3245	</bsfc>					<!-- Adjust this to produce the known power at a known rpm and manifold pressure.
+																For this engine it is 890 b.h.p. at 3,000 rpm at sea level inHg of 42.65.
+																This value is exposed on the property tree so it may be altered at runtime.	 -->
+   
+		<!-- COOLING -->
+
+  <cylinder-head-mass unit="LBS"> 9.25 </cylinder-head-mass>	<!-- The weight of a single cylinder head.... 5.2% of dry engine
+																The larger the value the slower the changes in engine temperature. -->
+  
+  <cooling-factor> 0.36 </cooling-factor>						<!-- Controls how efficient the aircraft cooling system is.
+																Adjust this value to create a 5 min max usage before engine overheating and also simulate the cowl flaps.
+																This value is exposed on the property tree so it may be altered at runtime. -->
+			
+  </piston_engine>
