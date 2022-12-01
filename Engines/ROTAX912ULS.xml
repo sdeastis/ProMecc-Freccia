@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 
 <!--
-  File:		ROTAX912ULS.xml
-  Authors:	Salvatore De Astis (SDeAstis)
-			Boomer
+  File:			ROTAX912ULS.xml
+  Authors:		Salvatore De Astis (SDeAstis)
+  Contributors:	Bomber
 
   See: http://wiki.flightgear.org/JSBSim_Engines#FGPiston
 
@@ -11,6 +11,7 @@
     name:           ROTAX912ULS
     type:           Piston Engine
     power:          100 hp
+	version: 		1.0
 -->
 
 <piston_engine name="ROTAX912ULS">
